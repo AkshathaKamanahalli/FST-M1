@@ -70,7 +70,6 @@ public class NativeAppProject {
 		addTask("Activity2", "Activity 2 with priority medium", "//android.widget.ListView[@resource-id='android:id/select_dialog_listview']/android.widget.LinearLayout[2]");
 		addTask("Activity3", "Activity 3 with priority low", "//android.widget.ListView[@resource-id='android:id/select_dialog_listview']/android.widget.LinearLayout[3]");
 		List<WebElement> task = driver.findElements(AppiumBy.xpath("//android.widget.ExpandableListView[@resource-id='com.app.todolist:id/exlv_tasks']//android.widget.RelativeLayout"));	
-		
 		Assert.assertEquals(task.size(), 3);
 	}
 	
@@ -102,9 +101,7 @@ public class NativeAppProject {
 		driver.findElement(AppiumBy.accessibilityId("07 September 2025")).click();
 		driver.findElement(AppiumBy.id("bt_deadline_ok")).click();
 		driver.findElement(AppiumBy.id("bt_new_task_ok")).click();
-		
 		String deadlineText = driver.findElement(AppiumBy.id("tv_exlv_task_deadline")).getText();
-		
 		Assert.assertEquals(deadlineText, "Deadline: 07.09.2025");
 			
 	}
@@ -149,9 +146,7 @@ public class NativeAppProject {
 
         // Perform
         driver.perform(Arrays.asList(drag));
-        
         driver.findElement(AppiumBy.id("bt_new_task_ok")).click();
-        
         driver.findElement(AppiumBy.accessibilityId("More options")).click();
         
         wait.until(
@@ -174,3 +169,4 @@ public class NativeAppProject {
 
 
 }
+
