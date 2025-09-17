@@ -126,11 +126,7 @@ public class GoogleChromeProject {
         driver.findElement(AppiumBy.xpath("//android.widget.EditText[@resource-id='password']")).sendKeys("password");
         driver.findElement(AppiumBy.xpath("//android.widget.Button[@text='Log in']")).click();
         
-//        String welcomeMessage = driver.findElement(AppiumBy.xpath("//android.view.View[@text='Sign in! Welcome Back!']")).getText();
-        
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.widget.TextView[@resource-id='action-confirmation']")));
-//        wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("//android.view.View[@text='Welcome Back, admin']")));
-        
+
         wait.until(ExpectedConditions.presenceOfElementLocated(
                 AppiumBy.xpath("//android.widget.TextView[@resource-id='action-confirmation']")));
         String welcomeMessage = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@resource-id='action-confirmation']")).getText();
@@ -208,5 +204,6 @@ public class GoogleChromeProject {
 	public void tearDown() {
 		driver.quit();
 	}
+
 
 }
