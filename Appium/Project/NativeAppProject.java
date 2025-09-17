@@ -57,7 +57,6 @@ public class NativeAppProject {
 		driver.findElement(AppiumBy.id("fab_new_task")).click();
 	    WebElement taskNameField = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.id("et_new_task_name")));
 	    taskNameField.sendKeys(taskName);
-//		driver.findElement(AppiumBy.id("et_new_task_name")).sendKeys(taskName);
 		driver.findElement(AppiumBy.id("et_new_task_description")).sendKeys(taskDescription);
 		driver.findElement(AppiumBy.id("tv_new_task_priority")).click();
 		driver.findElement(AppiumBy.xpath(priorityTab)).click();
@@ -95,8 +94,6 @@ public class NativeAppProject {
 
 		// Perform action
 		driver.perform(Arrays.asList(longPress));
-//		ActionsBase.siwpe(driver, centerX, centerY, 2);
-		
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/title' and @text='Edit To-Do Task']")).click();
 		driver.findElement(AppiumBy.id("tv_todo_list_deadline")).click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -117,7 +114,6 @@ public class NativeAppProject {
 		
 		driver.findElement(AppiumBy.xpath("(//android.widget.CheckBox[@resource-id='com.app.todolist:id/cb_task_done'])[1]")).click();
 		driver.findElement(AppiumBy.xpath("(//android.widget.CheckBox[@resource-id='com.app.todolist:id/cb_task_done'])[1]")).click();
-		
 		WebElement thirdTask = driver.findElement(AppiumBy.xpath("(//android.widget.RelativeLayout[@resource-id=\"com.app.todolist:id/rl_exlv_task_group_root\"])[1]"));
 		
 		// Define finger input
@@ -135,15 +131,13 @@ public class NativeAppProject {
 		// Perform action
 		driver.perform(Arrays.asList(longPress));
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@resource-id='android:id/title' and @text='Edit To-Do Task']")).click();
-		
 		WebElement seekbar = driver.findElement(AppiumBy.id("sb_new_task_progress"));
 		
 		// Get SeekBar location & size
         int startX = seekbar.getLocation().getX();
         int y = seekbar.getLocation().getY() + (seekbar.getSize().getHeight() / 2);
         int barWidth = seekbar.getSize().getWidth();
-		
-        int targetX = startX + (int)(barWidth * 0.5);
+		int targetX = startX + (int)(barWidth * 0.5);
         
         Sequence drag = new Sequence(finger, 1)
                 // Move finger to start of SeekBar
@@ -177,5 +171,6 @@ public class NativeAppProject {
 	public void tearDown() {
 		driver.quit();
 	}
+
 
 }
